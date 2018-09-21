@@ -16,6 +16,7 @@ public class Codes {
 	}
 	
 	// BubbleSort Recursivo
+	
 	public void bubbleRecursivo(int[] array, int n) {
 		// CASO BASE.
 		if (n == 0) {
@@ -47,6 +48,7 @@ public class Codes {
 	}
 	
 	// SelectionSort Recursivo
+	
 	public void SelectionRecursivo(int[] array, int comeco) {
 		if (comeco == array.length-1) {
 			return;
@@ -312,6 +314,7 @@ public class Codes {
 	}
 
 	// Trocar
+	
 	private void swap(int[] array, int index1, int index2) {
 		int aux = array[index1];
 		;
