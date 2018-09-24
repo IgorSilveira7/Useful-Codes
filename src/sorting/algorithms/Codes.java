@@ -191,10 +191,11 @@ public class Codes {
 			k++;
 		}
 	}
-
-	// CoutingSort
 	
-	public void coutingSort(int[] array, int leftIndex, int rightIndex) {
+
+	// CountingSort
+	
+	public void countingSort(int[] array, int leftIndex, int rightIndex) {
 		
 		if(leftIndex < rightIndex) {
 			
