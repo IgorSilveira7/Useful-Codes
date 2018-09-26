@@ -26,30 +26,52 @@ public class Main {
 		System.out.println("------------------------\n");
 		
 		fila.enqueue(1);
-		fila.enqueue(2);
 		
 		System.out.println(fila.head());
-		System.out.println(fila.dequeue());
 		
+		fila.enqueue(2);
 		fila.enqueue(3);
 		
 		System.out.println(fila.head());
-		System.out.println(fila.dequeue());
+		
+		fila.dequeue();
+		
+		System.out.println(fila.head());
+		
+		fila.dequeue();
+		
+		System.out.println(fila.head());
+		
+		fila.dequeue();
 		
 		fila.enqueue(4);
+		System.out.println(fila.head());
+		
 		fila.enqueue(5);
+		fila.enqueue(6);
 		
-		System.out.println(fila.head());
+		System.out.println(fila.isFull());
+		
+		fila.enqueue(7);
+		fila.enqueue(8);
+		
+		System.out.println(fila.isFull());
+		
+		System.out.println(fila.dequeue());
+		System.out.println(fila.dequeue());
+		System.out.println(fila.dequeue());
+		System.out.println(fila.dequeue());
 		System.out.println(fila.dequeue());
 		
-		System.out.println(fila.head());
+		System.out.println(fila.isEmpty());
+		
 		System.out.println(fila.dequeue());
 		
-		System.out.println(fila.head());
-		System.out.println(fila.dequeue());
 		
 		
-		System.out.println(fila.head());
+		
+		
+		
 		
 		
 

@@ -25,7 +25,7 @@ public class CircularQueue<T> implements QueueInterface<T> {
 			tail = 0;
 			head = 0;
 		} else {
-			tail++;
+			tail = (tail + 1) % array.length;
 		}
 		
 		array[tail] = element;
@@ -41,7 +41,7 @@ public class CircularQueue<T> implements QueueInterface<T> {
 			throw new QueueUnderflowException("Error: Fila vazia");
 		} else {
 			result = array[head];
-			head++;
+			head = (head + 1) % array.length;
 			elements--;
 		}
 		
