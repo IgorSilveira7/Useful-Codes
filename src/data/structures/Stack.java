@@ -15,7 +15,7 @@ public class Stack<T> implements StackInterface<T>{
 
 	@Override
 	public void push(T element) throws StackOverflowError {
-		if(top == array.length - 1) {
+		if(this.isFull()) {
 			throw new StackOverflowException("Error: Pilha cheia");
 		} else {
 			array[++top] = element;
@@ -26,7 +26,7 @@ public class Stack<T> implements StackInterface<T>{
 	public T pop() throws StackUnderflowException {
 		T result;
 		
-		if(top == -1) {
+		if(this.isEmpty()) {
 			throw new StackUnderflowException("Error: Pilha vazia");
 		} else {
 			return array[top--];
@@ -46,12 +46,10 @@ public class Stack<T> implements StackInterface<T>{
 
 	@Override
 	public boolean isEmpty() {
-		boolean result;
+		boolean result = false;
 		
 		if(top == -1) {
 			result = true;
-		} else {
-			result = false;
 		}
 		
 		return result;
@@ -59,13 +57,12 @@ public class Stack<T> implements StackInterface<T>{
 
 	@Override
 	public boolean isFull() {
-		boolean result;
+		boolean result = false;
 		
 		if(top == array.length - 1) {
 			result = true;
-		} else {
-			result = false;
-		}
+		} 
+
 		
 		return result;
 	}
