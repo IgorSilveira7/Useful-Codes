@@ -1,4 +1,4 @@
-package data.structures;
+package data.structures.stack;
 
 import exceptions.StackOverflowException;
 import exceptions.StackUnderflowException;

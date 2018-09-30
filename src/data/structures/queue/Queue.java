@@ -1,4 +1,4 @@
-package data.structures;
+package data.structures.queue;
 
 import exceptions.QueueOverflowException;
 import exceptions.QueueUnderflowException;
