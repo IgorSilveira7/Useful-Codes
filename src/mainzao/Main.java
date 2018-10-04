@@ -3,6 +3,7 @@ package mainzao;
 import java.util.Arrays;
 
 import data.structures.linkedList.LinkedList;
+import data.structures.linkedList.RecursiveLinkedList;
 import data.structures.queue.CircularQueue;
 import data.structures.queue.Queue;
 import data.structures.stack.Stack;
@@ -16,7 +17,7 @@ public class Main {
 	private static Stack<Integer> pilha = new Stack<Integer>(5);
 	private static Queue<Integer> filaNormal = new Queue<Integer>(5);
 	private static CircularQueue<Integer> fila = new CircularQueue<Integer>(5);
-	private static LinkedList<Integer> ll = new LinkedList<Integer>();
+	private static RecursiveLinkedList<Integer> ll = new RecursiveLinkedList<Integer>();
 
 	
 
@@ -24,7 +25,7 @@ public class Main {
 		
 		System.out.println(ll.isEmpty());
 		System.out.println(ll.size());
-		ll.remove(5);
+		
 		
 		
 		ll.insert(5);

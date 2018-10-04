@@ -1,5 +1,6 @@
 package data.structures.linkedList;
 
+
 public class LinkedList<T> implements LinkedListInterface<T> {
 	
 	protected LinkedListNode<T> head;
@@ -18,10 +19,9 @@ public class LinkedList<T> implements LinkedListInterface<T> {
 		Integer result = 0;
 		
 		if(!isEmpty()) {
-			result = 1;
 			LinkedListNode<T> node = this.head;
 			
-			while(node.getNext() != null) {
+			while(!node.isNull()) {
 				result++;
 				node = node.getNext();
 			}
@@ -32,40 +32,32 @@ public class LinkedList<T> implements LinkedListInterface<T> {
 
 	@Override
 	public T search(T element) {
-		T result = null;
 		LinkedListNode<T> node = this.head;
 		
-		if(this.head.getData().equals(element)) {
-			result = this.head.getData();
-		} else {
-			while(node.getNext() != null) {
-				node = node.getNext();
-				
-				if(node.getData().equals(element)) {
-					result = node.getData();
-				}
-				
-				
-			}
+		while(!node.isNull() && !node.getData().equals(element)) {
+			node = node.getNext();
 		}
 		
-		return result;
+		return node.getData();
 	}
 
 	@Override
 	public void insert(T element) {
 		if(this.head.isNull()) {
-			this.head = new LinkedListNode<T>(element, null);
+			LinkedListNode<T> newHead = new LinkedListNode<T>(element, this.head);
+			this.head = newHead;
 			return;
 		}
 		
 		LinkedListNode<T> node = this.head;
 		
-		while(node.getNext() != null) {
+		while(!node.getNext().isNull()) {
 			node = node.getNext();
 		}
 		
-		node.setNext(new LinkedListNode<T>(element, null));
+		LinkedListNode<T> newNode = new LinkedListNode<T>(element, node.getNext());
+		node.setNext(newNode);
+		
 		
 	}
 
@@ -89,6 +81,23 @@ public class LinkedList<T> implements LinkedListInterface<T> {
 			node = node.getNext();
 		}
 		
+	}
+
+	@Override
+	public T[] toArray() {
+		T[] array = (T[]) new Object[this.size()];
+		
+		LinkedListNode<T> aux = this.head;
+		
+		int i = 0;
+		
+		while(!aux.isNull()) {
+			array[i] = aux.getData();
+			aux = aux.getNext();
+			i++;
+		}
+		
+		return array;
 	}
 
 }

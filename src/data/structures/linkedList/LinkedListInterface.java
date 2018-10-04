@@ -12,4 +12,6 @@ public interface LinkedListInterface<T> {
 	
 	public void remove(T element);
 	
+	public T[] toArray();
+	
 }
