@@ -84,5 +84,15 @@ public class RecursiveLinkedList<T> implements LinkedListInterface<T> {
 			toArray(array, node.next, i+1);
 		}
 	}
+	
+	public T getData() {
+		return this.data;
+	}
+
+	public RecursiveLinkedList<T> getNext() {
+		return next;
+	}
+	
+	
 
 }
