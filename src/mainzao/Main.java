@@ -53,7 +53,14 @@ public class Main {
 		
 		System.out.println(Arrays.toString(ll.toArray()));
 		
+		
+		ll.remove(15);
+		
+		System.out.println(Arrays.toString(ll.toArray()));
+		
 		ll.removeLast();
+		
+		ll.removeFirst();
 		
 		System.out.println(Arrays.toString(ll.toArray()));
 		

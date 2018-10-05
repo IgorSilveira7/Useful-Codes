@@ -77,7 +77,6 @@ public class RecursiveDoubleLinkedList<T> extends RecursiveLinkedList<T> impleme
 	@Override
 	public void removeLast() {
 		if(this.isEmpty()) {
-			System.out.println(this.data);
 			this.previous.previous.next = new RecursiveDoubleLinkedList<T>();
 			
 		} else {
