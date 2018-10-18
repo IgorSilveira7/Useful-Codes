@@ -99,5 +99,85 @@ public class LinkedList<T> implements LinkedListInterface<T> {
 		
 		return array;
 	}
+	
+	@Override
+	public String toString() {
+		String result = "";
+		
+		LinkedListNode<T> aux = this.head;
+		
+		while(!aux.isNull()) {
+			result += aux.getData() + " ";
+			aux = aux.getNext();
+		}
+		
+		return result;
+		
+	}
+	
+	public void reverseList() {
+		
+		LinkedListNode<T> prev = new LinkedListNode<>();
+		LinkedListNode<T> current = this.head;
+		LinkedListNode<T> next;
+		
+		while(!current.isNull()) {
+			
+			next = current.getNext();
+			current.setNext(prev);
+			prev = current;
+			current = next;
+		}
+		
+		this.head = prev;
+	}
+	
+	
+	
+	public int maxElement() {
+		int max = 0;
+		
+		LinkedListNode<T> aux = this.head;
+		
+		while(!aux.isNull()) {
+			if((int) aux.getData() > max) {
+				max = (int) aux.getData();
+			}
+			
+			aux = aux.getNext();
+		}
+		
+		return max;
+	}
+	
+	public int indexOf(T element) {
+		int index = -1;
+		
+		if(!this.isEmpty()) {
+			
+			LinkedListNode<T> aux = this.head;
+			
+			while(!aux.isNull() && aux.getData() != element) {
+				aux = aux.getNext();
+				index++;
+			}
+			
+			if(aux.isNull()) {
+				index = -1;
+			} else {
+				index++;
+			}
+			
+			
+		}
+		
+		return index;
+	}
+	
+	
+	
+	
+	
+	
 
 }
