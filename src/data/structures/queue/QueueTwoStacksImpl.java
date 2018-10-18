@@ -20,6 +20,7 @@ public class QueueTwoStacksImpl<T> implements QueueInterface<T> {
 	public void enqueue(T element) throws QueueOverflowException {
 		if(!this.isFull()) {
 			this.mainStack.push(element);
+			tail++;
 		} else {
 			throw new QueueOverflowException("Fila cheia!");
 		}
@@ -41,6 +42,8 @@ public class QueueTwoStacksImpl<T> implements QueueInterface<T> {
 			while(!this.auxStack.isEmpty()) {
 				this.mainStack.push(this.auxStack.pop());
 			}
+			
+			tail--;
 			
 			return result;
 		
