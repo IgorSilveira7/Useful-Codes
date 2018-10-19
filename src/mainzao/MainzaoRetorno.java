@@ -10,16 +10,18 @@ public class MainzaoRetorno {
 
 	public static void main(String[] args) {
 		
-		ll.insert(1);
-		ll.insert(2);
-		ll.insert(3);
-		ll.insert(4);
-		ll.insert(5);
+		ll.insertOrdered(7);
+		ll.insertOrdered(9);
+		ll.insertOrdered(1);
+		ll.insertOrdered(5);
+		ll.insertOrdered(11);
+		ll.insertOrdered(13);
+		
 		
 		System.out.println(ll.toString());
 		
 		
-		System.out.println(ll.indexOf(4));
+		
 		
 
 	}

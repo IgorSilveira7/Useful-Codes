@@ -174,6 +174,25 @@ public class LinkedList<T> implements LinkedListInterface<T> {
 		return index;
 	}
 	
+	public void insertOrdered(T element) {
+		if(this.head.isNull() || (int) element < (int) this.head.getData()) {
+			LinkedListNode<T> newHead = new LinkedListNode<T>(element, this.head);
+			this.head = newHead;
+			return;
+		} 
+		
+		LinkedListNode<T> aux = this.head;
+		
+		while(!aux.getNext().isNull() && (int) element > (int) aux.getNext().getData()) {
+			aux = aux.getNext();
+		}
+		
+		LinkedListNode<T> newNode = new LinkedListNode<T>(element, aux.getNext());
+		aux.setNext(newNode);
+		
+		
+	}
+	
 	
 	
 	
