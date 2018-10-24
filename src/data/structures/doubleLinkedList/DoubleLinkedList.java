@@ -10,7 +10,7 @@ public class DoubleLinkedList<T> extends LinkedList<T> implements DoubleLinkedLi
 	@Override
 	public void insert(T element) {
 		if(this.head.isNull()) {
-			DoubleLinkedListNode<T> aux = new DoubleLinkedListNode<T>(element, null, null);
+			DoubleLinkedListNode<T> aux = new DoubleLinkedListNode<T>(element, new DoubleLinkedListNode<>(), new DoubleLinkedListNode<>());
 			this.head = aux;
 			this.last = aux;
 			return;
@@ -18,11 +18,11 @@ public class DoubleLinkedList<T> extends LinkedList<T> implements DoubleLinkedLi
 		
 		DoubleLinkedListNode<T> node = (DoubleLinkedListNode<T>) this.head;
 		
-		while(node.getNext() != null) {
+		while(!node.getNext().isNull()) {
 			node = (DoubleLinkedListNode<T>) node.getNext();
 		}
 		
-		DoubleLinkedListNode<T> aux = new DoubleLinkedListNode<T>(element, null, node);
+		DoubleLinkedListNode<T> aux = new DoubleLinkedListNode<T>(element, new DoubleLinkedListNode<>(), node);
 		
 		node.setNext(aux);
 		this.last = aux;
@@ -65,6 +65,43 @@ public class DoubleLinkedList<T> extends LinkedList<T> implements DoubleLinkedLi
 
 	public void setLast(DoubleLinkedListNode<T> last) {
 		this.last = last;
+	}
+	
+	@Override
+	public String toString() {
+		String result = "";
+		
+		DoubleLinkedListNode<T> aux = (DoubleLinkedListNode<T>) this.head;
+		
+		while(!aux.isNull()) {
+			result += aux.getData() + " ";
+			aux = (DoubleLinkedListNode<T>) aux.getNext();
+		}
+		
+		return result;
+	}
+	
+	public void reverseList() {
+		if(!this.isEmpty()) {
+			DoubleLinkedListNode<T> aux = this.last;
+			
+			while(!aux.isNull()) {
+				this.swap(aux);
+				aux = aux.getPrevious();
+			}
+			
+			DoubleLinkedListNode<T> temp = (DoubleLinkedListNode<T>) this.head;
+			this.head = this.last;
+			this.last = temp;
+			
+		}
+	}
+	
+	private void swap(DoubleLinkedListNode<T> node) {
+		DoubleLinkedListNode<T> temp = (DoubleLinkedListNode<T>) node.getNext();
+		node.setNext(node.getPrevious());
+		node.setPrevious(temp);
+		
 	}
 	
 	

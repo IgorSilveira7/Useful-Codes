@@ -82,6 +82,18 @@ public class LinkedList<T> implements LinkedListInterface<T> {
 		}
 		
 	}
+	
+	public void removeFirst() {
+		if(!this.isEmpty()) {
+			this.head = this.head.getNext();
+		}
+	}
+	
+	public void insertFirst(T element) {
+		LinkedListNode<T> newHead = new LinkedListNode<T>(element, this.head);
+		this.head = newHead;
+		
+	}
 
 	@Override
 	public T[] toArray() {
@@ -130,6 +142,20 @@ public class LinkedList<T> implements LinkedListInterface<T> {
 		}
 		
 		this.head = prev;
+	}
+	
+	public void reverseListRecursive() {
+		this.reverseStep(this.head);
+		
+	}
+	
+	private void reverseStep(LinkedListNode<T> node) {
+		if(!node.next.isNull()) {
+			T data = node.getData();
+			this.removeFirst();
+			this.reverseStep(this.head);
+			this.insert(data);
+		}
 	}
 	
 	
@@ -190,6 +216,45 @@ public class LinkedList<T> implements LinkedListInterface<T> {
 		LinkedListNode<T> newNode = new LinkedListNode<T>(element, aux.getNext());
 		aux.setNext(newNode);
 		
+		
+	}
+	
+	public LinkedListNode<T> getHead() {
+		return this.head;
+	}
+	
+	
+	public void merge(LinkedList<Integer> l1, LinkedList<Integer> l2) {
+		
+		LinkedListNode<Integer> aux1;
+		LinkedListNode<Integer> aux2 = l2.head;
+		
+		while(!aux2.isNull()) {
+			if(aux2.getData() < l1.head.getData()) {
+				l1.insertFirst(aux2.getData());
+				aux2 = aux2.getNext();
+			} else {
+				aux1 = l1.head;
+				
+				while(!aux1.getNext().isNull()) {
+					if(aux1.getNext().getData() > aux2.getData()) {
+						LinkedListNode<Integer> temp = aux2;
+						temp.next = aux1.next;
+						aux1.next = temp;
+					}
+					
+					aux1 = aux1.getNext();
+				}
+				
+				if(aux1.getData() < aux2.getData()) {
+					LinkedListNode<Integer> temp = aux2;
+					temp.next = aux1.next;
+					aux1.next = temp;
+				}
+			}
+			
+			aux2 = aux2.getNext();
+		}
 		
 	}
 	
